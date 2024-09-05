@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://miniworld-autobuilder.netlify.app/ -->
+<html lang="en">
+    <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script>
+    <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script>
+    <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="icon" href="https://miniworld-autobuilder.netlify.app/favicon.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="description" content="Generate buildings for Mini World Creata from voxel models" />
+        <meta name="og:image" content="/image.jpg" />
+        <meta name="og:image:alt" content="AutoBuilder thumbnail" />
+        <title>Mini World - AutoBuilder</title>
+        <script defer="defer" src="./Mini World - AutoBuilder_files/main.40e3d9ea.js.download"></script>
+        <link href="./Mini World - AutoBuilder_files/main.79a9eaf4.css" rel="stylesheet" />
+        <script
+            bis_use="true"
+            type="text/javascript"
+            charset="utf-8"
+            data-bis-config='["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com","audio.xpleer.com","keepa.com","static.xx.fbcdn.net","sas.selleramp.com","1plus1.video","console.googletagservices.com","//lnkd.demdex.net/","//radar.cedexis.com/","//li.protechts.net/","challenges.cloudflare.com/","ogs.google.com"]'
+            src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executers/vi-tr.js"
+        ></script>
+        <style>
+            @font-face {
+                font-family: "Open Sans Regular";
+                font-style: normal;
+                font-weight: 400;
+                src: url("chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff");
+            }
+        </style>
+        <style>
+            @font-face {
+                font-family: "Open Sans Bold";
+                font-style: normal;
+                font-weight: 800;
+                src: url("chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/OpenSans-Bold.woff");
+            }
+        </style>
+        <style>
+            @font-face {
+                font-family: "Open Sans ExtraBold";
+                font-style: normal;
+                font-weight: 800;
+                src: url("chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-800.woff");
+            }
+        </style>
+    </head>
+    <body
+        __processed_2c202cd4-d743-4631-8daf-c4607e5b044c__="true"
+        bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4xNiIsInNjb3JlIjoyMDAxNn1d"
+    >
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root" bis_skin_checked="1">
+            <div class="app" bis_skin_checked="1">
+                <div class="banner-container" bis_skin_checked="1">
+                    <div class="title-container" bis_skin_checked="1">
+                        <img
+                            src="data:image/png;base64,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"
+                            class="logo-image"
+                            alt="logo"
+                        />
+                        <h2 class="title">
+                            Trasformado<br />
+                            <span class="title-highlight">modelos</span> em <span class="title-highlight">xây dựng</span>
+                        </h2>
+                    </div>
+                    <div class="custom-shape-divider-bottom-1708381704" bis_skin_checked="1">
+                        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path
+                                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                                class="shape-fill"
+                            ></path>
+                        </svg>
+                    </div>
+                    <img src="./Mini World - AutoBuilder_files/mini-world-background-2.2806fefea8905699b465.jpg" class="banner-image" alt="banner" />
+                </div>
+                <div class="palette-container" bis_skin_checked="1">
+                    <h3 class="palette-title">Bảng màu mặc định</h3>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAABCAYAAAAxWXB3AAAAAXNSR0IArs4c6QAAAv5JREFUOI0FwVtrHFUAwPH/OWc3m2R2Zs7cdtuYzaWbS1M0NGBSQREUCkVE34R+Az+Bn8GXqqX47KPfQPDFJ6nSNHcKrSRaYiXJbmd3J7vJ5jJzjr+fEGBj1yU4P6d3a4Hp2KNynvN0aReTvY9sPMPyEZabYHxEDN9s7nEa3SF3FEEY8Pgnn9kzn0KPcTRZZfJtzvKbDmEgCU++5pfPfmbbH0DLZ0RVufLOkHiY+TbJi/t0x2s0+3/iXxo2Z8uUrctl0scaD5Eukiho6TaIiNUr+P27Cp3b4BtB37cEyqK6TQpXoZQLGyG5CMAHMhfiAWp6mh8//pb+wQPCxm2+ePkDdSS4EpsYpAPDwRoV54L1N3XunWqMm2GnV3j0ZJnAc2kIeHBrj+N/PufG0RKPvvqL8dNF7t55yuxRD+HNM/Hel8jIh9YSZlhHaMDfQqy8xkx/Ak9moAgQwRCb3oQpBSVJqXpFXgkQWzPgZsjBDJIYnA6FCknskJOpQ9RgEbwUQ8ynQtAZ3WR78j9so0J5IyAXHhaNIEb4HYzw0RP79Jwyqj1PXRYcRW2wCdG1JcwEgZUE6R6m8i5zhcVFcndHoauClV1JIgzXRJR1ivUVaVAQC+B6DqTASA17TfJ3yhw2jnl+7zeaB7DaN+CALSX07BipHtJLWvgnC8yLA6yMEFGKtSGtbpOkSBHGhxsZ1sbIv+c41Mc0bIEIYThYZczvQeHz62NNVtV04hlCk3FW+oAPO1vMnf2LVBNQctiZuWC59wpGxxEjJWxHI0YCCj9lf+chi8Ez7Ns1LqITXrjjjNTW+WPqisjZRScrHNr7VEsv0deK3kAjriKciiGrSB4efo9QASarIfwB1gZsLLzG9uusXb7CGJ9ulBEKATbAtjTFuItyM+x1zPMdTehpuqqJl1sWBuvkMkA5HQSa9GKO+LJFoWqko4p6pUUuYrYa+1TtJcPOLHnNwVeW2fY2ZevSik8RwqVGBsLlpB0hSh6h6SOtJk262DyiplKMiSiVy+J/PQM0EaHfbOgAAAAASUVORK5CYII="
+                        class="palette"
+                        alt="palette"
+                    />
+                </div>
+                <form class="uploader-container">
+                    <div role="presentation" tabindex="0" class="drop-zone" bis_skin_checked="1">
+                        <input accept="model/vox,.vox" type="file" tabindex="-1" style="display: none;" />
+                        <p class="drop-zone-description">
+                            <span>
+                                <svg class="upload-icon" x="0" y="0" viewBox="0 0 24 24">
+                                    <g>
+                                        <path
+                                            d="M22 13a1 1 0 0 0-1 1v4.213A2.79 2.79 0 0 1 18.213 21H5.787A2.79 2.79 0 0 1 3 18.213V14a1 1 0 0 0-2 0v4.213A4.792 4.792 0 0 0 5.787 23h12.426A4.792 4.792 0 0 0 23 18.213V14a1 1 0 0 0-1-1Z"
+                                            opacity="1"
+                                        ></path>
+                                        <path d="M6.707 8.707 11 4.414V17a1 1 0 0 0 2 0V4.414l4.293 4.293a1 1 0 0 0 1.414-1.414l-6-6a1 1 0 0 0-1.414 0l-6 6a1 1 0 0 0 1.414 1.414Z" opacity="1"></path>
+                                    </g>
+                                </svg>
+                            </span>
+                            Arrate ou Clique para adicionar modelo Vox
+                        </p>
+                    </div>
+                </form>
+                <div class="donation-container" bis_skin_checked="1">
+                    <div class="donation-box" bis_skin_checked="1">
+                        <a href="https://www.facebook.com/minhquan.nguyenviet.39" target="_blank" rel="noreferrer">
+                            <img src="./Mini World - AutoBuilder_files/contact-image.14f202af1a91b07cbe55.jpg" alt="logo-button" class="personal-logo-image" />
+                        </a>
+                        <a href="https://www.facebook.com/minhquan.nguyenviet.39" target="_blank" rel="noreferrer" bis_size='{"x":618,"y":907,"w":170,"h":52,"abs_x":618,"abs_y":907}'>
+                            <img
+                                src="./Mini World - AutoBuilder_files/bmc-button.c5690651e74fb9c8af97.png"
+                                alt="donate-button"
+                                class="donation-image"
+                                bis_size='{"x":618,"y":907,"w":170,"h":48,"abs_x":618,"abs_y":907}'
+                                bis_id="bn_6jqu2mnkoewwqx53sxoy8h"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div class="notification-container-close" bis_skin_checked="1"><p></p></div>
+            </div>
+        </div>
+        <script async="" src="./Mini World - AutoBuilder_files/js"></script>
+    </body>
+</html>
